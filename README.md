@@ -1,4 +1,4 @@
-<h1>An Analysis of Coca-Cola Company's Strategy and HR Activities (2025)</h1>
+<h1>UNDER CONSTRUCTION!</h1>
 
 <h2>Elevator Pitch</h2>
 Pocket Stock is a mobile-first web application that lets you practice Warren Buffett–style value investing by uploading annual reports and broker statements, extracting financial metrics, and tracking a concentrated 5–10 company portfolio. It demonstrates end-to-end product thinking: a polished React/TanStack frontend, secure cloud storage, AI-powered document analysis, and a full-stack architecture with Row-Level Security.
