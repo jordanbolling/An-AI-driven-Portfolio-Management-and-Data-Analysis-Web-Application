@@ -1,11 +1,10 @@
-<h1>Pocket Stock</h1>
+<h1>Introducing Pocket Stock</h1>
 
 Pocket Stock is a mobile-first web application that lets you practice Warren Buffett–style value investing by uploading annual reports and broker statements, extracting financial metrics, and tracking a concentrated 5–10 company portfolio. It demonstrates end-to-end product thinking: a polished React/TanStack frontend, secure cloud storage, AI-powered document analysis, and a full-stack architecture with Row-Level Security.
 <br>
 
 [Link to Web Application](https://pocket-stockk.lovable.app/auth)
 
-<br>
 <h2>Purpose & Concept</h2>
 
 The app is built around a clear investing thesis: hold 5–10 companies you genuinely understand, judge them on their published numbers rather than stock-price noise, and keep your portfolio concentrated enough to matter. Pocket Stock turns that philosophy into a practical workflow:
@@ -17,7 +16,6 @@ The app is built around a clear investing thesis: hold 5–10 companies you genu
 
 Everything is conceptual practice. No real money, brokerage accounts, or bank details!
 
-<br>
 <h2>Tech Stack</h2>
 
 * Framework: TanStack Start v1 (React 19, full-stack SSR/edge-ready)
@@ -30,7 +28,6 @@ Everything is conceptual practice. No real money, brokerage accounts, or bank de
 * Drag-and-drop: dnd-kit for reorderable portfolio rows
 * Language: TypeScript throughout
 
-<br>
 <h2>Key Features</h2>
 
 1. Auth-gated experience
@@ -38,8 +35,10 @@ Everything is conceptual practice. No real money, brokerage accounts, or bank de
 * Sign-up / sign-in required before accessing the app.
 * Protected routes sit behind an _authenticated layout.
 * Google OAuth support.
+<br>
 
 2. Portfolio dashboard
+<img src="https://i.ibb.co/q3dPmzkF/1.png"/>
 
 * Mobile-first, responsive design with a fixed bottom navigation bar (Portfolio, Upload Statements, Analysis, Account).
 * Visual target banner: “5–10 companies” with a threshold slider showing where the current count sits.
@@ -47,16 +46,19 @@ Everything is conceptual practice. No real money, brokerage accounts, or bank de
 * Drag-and-drop rank reordering via the Rank handle.
 * Inline percentage editing with validation (total cannot exceed 100%).
 * Empty-state guidance when all companies are deleted.
+<br>
 
 3. Document upload & management
+<img src="https://i.ibb.co/nqPXgMPJ/2.png"/>
 
 * Drag-and-drop or file-picker PDF upload (≤25 MB).
 * Optional link to an existing company or “Add a new company from this PDF.”
 * Document list with file name, company badge, size, upload date, and status chip.
 * Delete with confirmation. Stored file removed alongside the database row.
+<br>
 
 4. AI-powered financial analysis
-
+   
 * After upload, the PDF is sent to an AI model with a strict JSON schema.
 * Reads statements in order: Income Statement → Balance Sheet → Cash Flow Statement.
 * Extracts 14 metrics across three statement groups.
@@ -64,27 +66,34 @@ Everything is conceptual practice. No real money, brokerage accounts, or bank de
 * Handles synonyms for line items (ex: “Net Sales,” “Total Revenue,” “Turnover” for revenue).
 * Falls back: if Gross Profit is missing, derives it from Revenue - Cost of Goods Sold.
 * Results are stored per document and per fiscal year.
+<br>
 
 5. Spreadsheet-style analysis results
+<img src="https://i.ibb.co/1YkBVsSJ/3.png"/>
 
 * Each company’s analysis page renders a table with years as rows.
 * Grouped sections for Income Statement, Balance Sheet, and Cash Flow Statement.
 * Green cells = passed threshold, red = failed, grey = figure not found.
 * Detail dialogs for any metric with exact wording extracted, amounts, source location, and notes.
+<br>
 
 6. Formula audit log
+<img src="https://i.ibb.co/qY2m7Pj3/5.png"/>
 
 * Every analysis keeps a full audit trail: exact PDF wording, amount, source statement/page, formula, and result.
 * Users can open “View formula log” to inspect and correct extracted figures.
 * Corrections are saved as overrides and recalculate results in real time.
 * EPS Growth and Retained Earnings growth are intentionally “half-complete”: only the current-year figure is extracted. The user supplies the prior-year figure to complete the comparison.
+<br>
 
 7. Company pages
+<img src="https://i.ibb.co/QvvbnygR/4.png"/>
 
 * Market movement section (conceptual / coming soon, hyperlinked to a dedicated page).
 * Company News & Analysis section (coming soon page).
 * Live Notes section with its own page.
 * Delete company action with cascading deletion of linked reports, analyses, and stored PDFs.
+<br>
 
 8. Information / About page
 
@@ -102,7 +111,6 @@ Everything is conceptual practice. No real money, brokerage accounts, or bank de
 * Account seeding guard: Starter portfolio is added only once per account via a portfolio_setup marker. Deleting all companies keeps the portfolio empty.
 * Document rename cascade: Changing a company name/ticker updates linked documents automatically.
 * Manual override architecture: User corrections live in a separate metric_overrides column and resolve on top of AI output without destroying the original reading.
-<br>
 
 <h2>What This Demonstrates</h2>
 
